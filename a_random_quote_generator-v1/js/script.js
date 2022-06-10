@@ -15,8 +15,8 @@ const quotes = [
   { 
       quote: "Roger-",
       source: "Jinkx Monsoon",
-      citation: "RPDR Season 5",
-      year: 2013
+      citation: "RPDR All-Stars Season 7",
+      year: 2022
 
   },
   { 
@@ -58,7 +58,7 @@ const quotes = [
   { 
       quote: "Well guess what Mimi? We did",
       source: "Raven",
-      citation: "RPDR All Stars Season 1",
+      citation: "RPDR All-Stars Season 1",
       year: 2012
   },
   { 
@@ -75,20 +75,38 @@ const quotes = [
   }
 ];
 
+
 /***
  * `getRandomQuote` function
 ***/
 
-function getRandomQuote () {
-  
+function getRandomQuote (arr) {
+  let randomObject = Math.floor(Math.random() * arr.length);
+  return arr[randomObject];
 }
-
 
 /***
  * `printQuote` function
 ***/
 
+function printQuote () {
 
+  let randomQuoteObject = getRandomQuote(quotes);
+  let html =  <p class= "quote" > 'randomQuoteObject.quote' </p> + <p class="source" > 'randomQuoteObject.source'
+      if (randomQuoteObject.includes(citation)) {
+       += <span class= "citation"> 'randomQuoteObject.citation'  </span>;
+      } else {}
+      if (randomQuoteObject.includes(year)){
+       += <span class= "year"> 'randomQuoteObject.year' </span>;
+      } else {}
+      
+    </p>;
+
+  return document.getElementById('quote-box').innerHTML = html; 
+
+
+
+}
 
 /***
  * click event listener for the print quote button
