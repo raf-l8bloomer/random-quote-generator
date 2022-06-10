@@ -1,6 +1,6 @@
 const quotes = [
     { 
-        quote: "Water off a duck's back.",
+        quote: "Roger-",
         queen: "Jinkx Monsoon"
     },
     { 
@@ -50,5 +50,9 @@ const quotes = [
     { 
         quote: "You're perfect, you're beautiful, you look like Linda Evangelista, you're a model! Everything about you is perfect. Did you stone those tights? Oh, you're smiling! They eat her up every single time she's on that damn stage!",
         queen: "Aja"
+    },
+    { 
+        quote: "Look over there!",
+        queen: "Jaida Essence Hall"
     }
 ]
