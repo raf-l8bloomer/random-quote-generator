@@ -16,7 +16,8 @@ const quotes = [
       quote: "Roger-",
       source: "Jinkx Monsoon",
       citation: "RPDR All-Stars Season 7",
-      year: 2022
+      year: 2022,
+      tags: "Season's Winner"
 
   },
   { 
@@ -35,7 +36,8 @@ const quotes = [
       quote: "Not today, Satan! Not today.",
       source: "Bianca Del Rio",
       citation: "RPDR Season 6",
-      year: 2014
+      year: 2014,
+      tags: "Season's Winner"
   },
   { 
       quote: "HIIIIIEEEEEEEEEE!!!!",
@@ -71,13 +73,15 @@ const quotes = [
       quote: "Look over there!",
       source: "Jaida Essence Hall",
       citation: "RPDR Season 12",
-      year: 2020
+      year: 2020,
+      tags: "Season's Winner"
   }
 ];
 
 
 /***
  * `getRandomQuote` function
+ * Returns a random object within the 'quotes' array.
 ***/
 
 function getRandomQuote (arr) {
@@ -86,21 +90,48 @@ function getRandomQuote (arr) {
 }
 
 /***
+ * 'random_bg_color' function
+ * CODE CREDIT TO W3 SCHOOLS
+ * creates 3 random numbers to input into rgb parameter and returns a random color
+ */
+
+function random_bg_color() {
+    var x = Math.floor(Math.random() * 256);
+    var y = Math.floor(Math.random() * 256);
+    var z = Math.floor(Math.random() * 256);
+    var bgColor = "rgb(" + x + "," + y + "," + z + ")";
+
+    document.body.style.background = bgColor;
+    }
+
+
+   
+
+/***
  * `printQuote` function
+ * returns 'quote' and 'source' while checking if there is a 'citation' and/or 'year' and printing them to screen
 ***/
 
 function printQuote () {
-  let randomQuote = getRandomQuote(quotes);
-  let html = `<p class="quotes"> ${randomQuote.quote} </p>` + `<p class="source"> ${randomQuote.source}`;
-    if (randomQuote.citation ){
-        html += `<span class="citation"> ${randomQuote.citation}</span>`;
-    } 
-    if (randomQuote.year){
-        html += `<span class="source"> ${randomQuote.year} </span>`;
-    } 
-    + '</p>'
-    document.getElementById('quote-box').innerHTML = html;
-}
+    setInterval(timedChange, 5000);
+    function timedChange () {
+        let randomQuote = getRandomQuote(quotes);
+        let randomBGC = random_bg_color();;
+        let html = `<p class="quote"> ${randomQuote.quote} </p>` + `<p class="source"> ${randomQuote.source}`;
+            if (randomQuote.citation ){
+                html += `<span class="citation"> ${randomQuote.citation}</span>`;
+            } 
+            if (randomQuote.year){
+                html += `<span class="source"> ${randomQuote.year} </span>`;
+            } 
+            if (randomQuote.tags){
+                html += `<span class="tags"> ${randomQuote.tags} </span>`;
+            } 
+            + '</p>';
+            document.getElementById('quote-box').innerHTML = html;
+        }
+    }
+
 
 /***
  * click event listener for the print quote button
