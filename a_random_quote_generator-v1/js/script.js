@@ -91,7 +91,8 @@ function getRandomQuote (arr) {
 
 /***
  * 'random_bg_color' function
- * CODE CREDIT TO W3 SCHOOLS
+ * CODE CREDIT TO W3 SCHOOLS 
+ * src = https://www.w3resource.com/javascript-exercises/javascript-math-exercise-40.php
  * creates 3 random numbers to input into rgb parameter and returns a random color
  */
 
@@ -105,33 +106,31 @@ function random_bg_color() {
     }
 
 
-   
+    
 
 /***
  * `printQuote` function
- * returns 'quote' and 'source' while checking if there is a 'citation' and/or 'year' and printing them to screen
+ * returns 'quote' and 'source' while checking if there is a 'citation', 'year', and/or 'tags' and printing them to screen
 ***/
 
 function printQuote () {
-    setInterval(timedChange, 5000);
-    function timedChange () {
-        let randomQuote = getRandomQuote(quotes);
-        let randomBGC = random_bg_color();;
-        let html = `<p class="quote"> ${randomQuote.quote} </p>` + `<p class="source"> ${randomQuote.source}`;
-            if (randomQuote.citation ){
-                html += `<span class="citation"> ${randomQuote.citation}</span>`;
-            } 
-            if (randomQuote.year){
-                html += `<span class="source"> ${randomQuote.year} </span>`;
-            } 
-            if (randomQuote.tags){
-                html += `<span class="tags"> ${randomQuote.tags} </span>`;
-            } 
-            + '</p>';
-            document.getElementById('quote-box').innerHTML = html;
-        }
+    let randomQuote = getRandomQuote(quotes);
+    let randomBGC = random_bg_color();;
+    let html = `<p class="quote"> ${randomQuote.quote} </p>` + `<p class="source"> ${randomQuote.source}`;
+        if (randomQuote.citation ){
+            html += `<span class="citation"> ${randomQuote.citation}</span>`;
+        } 
+        if (randomQuote.year){
+            html += `<span class="source"> ${randomQuote.year} </span>`;
+        } 
+        if (randomQuote.tags){
+            html += `<span class="tags"> ${randomQuote.tags} </span>`;
+        } 
+        + '</p>';
+        document.getElementById('quote-box').innerHTML = html;
     }
-
+    
+setInterval(printQuote, 15000);
 
 /***
  * click event listener for the print quote button
