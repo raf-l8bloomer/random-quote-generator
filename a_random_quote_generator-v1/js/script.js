@@ -90,22 +90,16 @@ function getRandomQuote (arr) {
 ***/
 
 function printQuote () {
-
-  let randomQuoteObject = getRandomQuote(quotes);
-  let html =  <p class= "quote" > 'randomQuoteObject.quote' </p> + <p class="source" > 'randomQuoteObject.source'
-      if (randomQuoteObject.includes(citation)) {
-       += <span class= "citation"> 'randomQuoteObject.citation'  </span>;
-      } else {}
-      if (randomQuoteObject.includes(year)){
-       += <span class= "year"> 'randomQuoteObject.year' </span>;
-      } else {}
-      
-    </p>;
-
-  return document.getElementById('quote-box').innerHTML = html; 
-
-
-
+  let randomQuote = getRandomQuote(quotes);
+  let html = `<p class="quotes"> ${randomQuote.quote} </p>` + `<p class="source"> ${randomQuote.source}`;
+    if (randomQuote.citation ){
+        html += `<span class="citation"> ${randomQuote.citation}</span>`;
+    } 
+    if (randomQuote.year){
+        html += `<span class="source"> ${randomQuote.year} </span>`;
+    } 
+    + '</p>'
+    document.getElementById('quote-box').innerHTML = html;
 }
 
 /***
