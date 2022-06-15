@@ -97,10 +97,10 @@ function getRandomQuote (arr) {
  */
 
 function random_bg_color() {
-    var x = Math.floor(Math.random() * 256);
-    var y = Math.floor(Math.random() * 256);
-    var z = Math.floor(Math.random() * 256);
-    var bgColor = "rgb(" + x + "," + y + "," + z + ")";
+   let x = Math.floor(Math.random() * 256);
+    let y = Math.floor(Math.random() * 256);
+    let z = Math.floor(Math.random() * 256);
+    let bgColor = "rgb(" + x + "," + y + "," + z + ")";
 
     document.body.style.background = bgColor;
     }
@@ -115,7 +115,7 @@ function random_bg_color() {
 
 function printQuote () {
     let randomQuote = getRandomQuote(quotes);
-    let randomBGC = random_bg_color();;
+    random_bg_color();
     let html = `<p class="quote"> ${randomQuote.quote} </p>` + `<p class="source"> ${randomQuote.source}`;
         if (randomQuote.citation ){
             html += `<span class="citation"> ${randomQuote.citation}</span>`;
@@ -126,11 +126,11 @@ function printQuote () {
         if (randomQuote.tags){
             html += `<span class="tags"> ${randomQuote.tags} </span>`;
         } 
-        + '</p>';
+        clearInterval(setInterval);
         document.getElementById('quote-box').innerHTML = html;
     }
     
-setInterval(printQuote, 15000);
+setInterval(printQuote, 10000);
 
 /***
  * click event listener for the print quote button
